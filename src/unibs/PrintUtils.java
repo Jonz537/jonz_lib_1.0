@@ -8,8 +8,10 @@ import java.util.Map;
 
 public class PrintUtils {
 
-    public void printMenuHashMap(HashMap<Key, Value> hashMap) {
-        for (Map.Entry<Key, Value> entry: hashMap.entrySet()) {
+    private PrintUtils() {}
+
+    public static <K, V> void printMenuHashMap(HashMap<K, V> hashMap) {
+        for (Map.Entry<K, V> entry: hashMap.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
