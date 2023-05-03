@@ -1,13 +1,19 @@
 package unibs;
 
 
+import com.sun.jdi.Value;
+
+import java.security.Key;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author saleri giorgio
  */
 public class MenuManager {
 
-    private String title;
-    private String[] choices;
+    protected String title;
+    protected String[] choices;
 
     /**
      * @param title
