@@ -32,7 +32,9 @@ public class InputInterface {
      */
     public static String readString(String message) {
         System.out.println(message);
-        return SCANNER.next();
+        String string = SCANNER.next();
+        SCANNER.nextLine();
+        return string;
     }
 
     /**
@@ -49,6 +51,24 @@ public class InputInterface {
                 System.out.println(ERROR_NULL_STRING);
             }
         } while(readString.trim().length() == 0);
+
+        return readString;
+    }
+
+    /**
+     * read a string from user and check it is not null
+     * @param message to print
+     * @return read string
+     */
+    public static String readNotEmptyStringSingleWord(String message) {
+        String readString = null;
+
+        do {
+            readString = readString(message);
+            if(readString.trim().length() != readString.length()) {
+                System.out.println(ERROR_NULL_STRING);
+            }
+        } while(readString.trim().length() != readString.length());
 
         return readString;
     }
@@ -73,6 +93,7 @@ public class InputInterface {
                 SCANNER.next();
             }
         } while(!finished);
+        SCANNER.nextLine();
         return number;
     }
 
@@ -131,6 +152,7 @@ public class InputInterface {
                 SCANNER.next();
             }
         } while(!finished);
+        SCANNER.nextLine();
         return number;
     }
 
