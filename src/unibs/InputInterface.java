@@ -1,5 +1,6 @@
 package unibs;
 
+import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -192,5 +193,17 @@ public class InputInterface {
             }
         } while (true);
         return readChar;
+    }
+
+    /**
+     * ask a true/false yes/no question
+     * @param question the question to be printed
+     * @param trueAnswer if the user choose this the method will return true
+     * @param falseAnswer if the user choose this the method will return false
+     * @return true or false based on the user's choice
+     */
+    public static boolean askTrueOrFalse(String question, String trueAnswer, String falseAnswer) {
+        MenuManager menuManager = new MenuManager(question, new String[]{trueAnswer, falseAnswer});
+        return menuManager.chooseNoExit() == 0;
     }
 }
