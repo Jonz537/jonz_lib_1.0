@@ -1,5 +1,6 @@
 package unibs;
 
+import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -32,7 +33,9 @@ public class InputInterface {
      */
     public static String readString(String message) {
         System.out.println(message);
-        return SCANNER.next();
+        String string = SCANNER.next();
+        SCANNER.nextLine();
+        return string;
     }
 
     /**
@@ -49,6 +52,24 @@ public class InputInterface {
                 System.out.println(ERROR_NULL_STRING);
             }
         } while(readString.trim().length() == 0);
+
+        return readString;
+    }
+
+    /**
+     * read a string from user and check it is not null
+     * @param message to print
+     * @return read string
+     */
+    public static String readNotEmptyStringSingleWord(String message) {
+        String readString = null;
+
+        do {
+            readString = readString(message);
+            if(readString.trim().length() != readString.length()) {
+                System.out.println(ERROR_NULL_STRING);
+            }
+        } while(readString.trim().length() != readString.length());
 
         return readString;
     }
@@ -73,6 +94,7 @@ public class InputInterface {
                 SCANNER.next();
             }
         } while(!finished);
+        SCANNER.nextLine();
         return number;
     }
 
@@ -131,6 +153,7 @@ public class InputInterface {
                 SCANNER.next();
             }
         } while(!finished);
+        SCANNER.nextLine();
         return number;
     }
 
@@ -170,5 +193,17 @@ public class InputInterface {
             }
         } while (true);
         return readChar;
+    }
+
+    /**
+     * ask a true/false yes/no question
+     * @param question the question to be printed
+     * @param trueAnswer if the user choose this the method will return true
+     * @param falseAnswer if the user choose this the method will return false
+     * @return true or false based on the user's choice
+     */
+    public static boolean askTrueOrFalse(String question, String trueAnswer, String falseAnswer) {
+        MenuManager menuManager = new MenuManager(question, new String[]{trueAnswer, falseAnswer});
+        return menuManager.chooseNoExit() == 0;
     }
 }

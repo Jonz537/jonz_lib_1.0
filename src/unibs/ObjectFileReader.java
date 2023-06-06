@@ -4,8 +4,6 @@ import java.io.*;
 
 public class ObjectFileReader {
 
-    //TODO: read/write more object from same file
-
     private static final String ERROR_READ_FILE = "Error: there was a problem while reading the file";
     private static final String ERROR_WRITE_FILE = "Error: there was a problem while saving the file";
     private static final String ERROR_CLOSE_FILE = "Error: there was a problem while closing the file";
@@ -58,4 +56,7 @@ public class ObjectFileReader {
             }
         }
     }
+
+
+
 }
